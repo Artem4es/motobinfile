@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Payment error{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class='text-danger'>Payment Unsuccessful!</h1>
+      <p>We're sorry, but your payment was not successful. Please try again later or <a href="{{url_for('contact')}}" style="color:black;text-decoration:none;">contact</a> our support team for assistance so we can offer another payment methods!</p>
+      <p>Possible reasons why your payment failed include:</p>
+      <ul>
+        <li>Insufficient funds</li>
+        <li>Incorrect payment details</li>
+        <li>Payment processing issues</li>
+      </ul>
+      <p>If you continue to experience problems with your payment, please do not hesitate to contact us!</p>
+      <p>Thank you for choosing our service.</p>
+      <button type="button" class="btn btn-primary"><a href="{{url_for('contact')}}" style="color:white;text-decoration:none;">Contact Us</a></button>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

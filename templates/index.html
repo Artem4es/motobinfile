@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}BIN and XDF files{% endblock %}
+    {% block content %}
+        {% include 'includes/flash.html' %}
+
+        <section class="py-5">
+            {% include 'includes/paginator.html' %}
+            {% if not cards %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h3> <p class="mx-auto"> This file may not be displayed on our website, but we may have it in our database. Please feel free to ask us about it using our contact form!</p></h3>
+                            <a href="{{url_for('contact')}}" class="btn btn-primary">Contact Us</a>
+                        </div>
+                    </div>
+                </div>                       
+                {% endif %}
+                <div class="container px-4 px-lg-5 mt-5">
+                    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                        {% for card in cards %}
+                            {% include 'includes/card.html' %}
+                        {% endfor %}
+                    </div>
+                    {% include 'includes/paginator.html' %}
+                </div>
+        </section>
+        
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'includes/flash.html' %}
+        <!-- Product section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ url_for('static', filename='assets/logos/{}.jpg'.format(item.brand))}}" alt="..." /></div>
+                    <div class="col-md-6">
+                
+                        <h1 class="display-5 fw-bolder">{{item.number}}</h1>
+                        <div class="fs-3 mb-3">
+                            <span>{{item.price}} €</span>
+                        </div>
+                        <p class="lead">{{item.model}}</p>
+                        <p class="lead">{{item.description}}</p>
+                        <p class="lead">{{item.details}}</p>
+                        <div class="d-flex">
+                                <form action="{{ url_for('add_to_cart') }}" method="POST">
+                                    <input type="hidden" name="item_id" value="{{ item.id }}">
+                                    <input type="hidden" name="item_price" value="{{ item.price }}">
+                                    <input type="hidden" name="item_number" value="{{ item.number }}">
+                                    <input type="hidden" name="item_description" value="{{ item.description }}">
+                                    <div class="text-center"><button class="btn btn-outline-dark flex-shrink-0" type="submit" class="btn btn-outline-dark mt-auto"><i class="bi-cart-fill me-1"></i>Add to cart</button>
+                                    </div>
+                                </form>
+                        </div>
+                        <br>
+                        <div class="d-flex">
+                            <form action="{{ url_for('contact') }}" method="GET">
+                                <div class="text-center"><button class="btn btn-outline-dark flex-shrink-0" type="submit" class="btn btn-outline-dark mt-auto"></i>Ask a question</button>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Related items section-->
+        
+        <section class="py-5 bg-light">
+            <div class="container px-4 px-lg-5 mt-5">
+                <h2 class="fw-bolder mb-4">Related files</h2>
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    {% for card in related %}
+                        {% include 'includes/card.html' %}
+                    {% endfor %}    
+
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>
+{% endblock %}

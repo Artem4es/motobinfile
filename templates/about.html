@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}About{% endblock %}
+{% block content %}
+
+<div class="container py-5">
+    <div class="jumbotron">
+        <h1>About Us</h1>
+        <p>We are a file service company that specializes in providing high-quality, custom-tuned ECU files for
+            motorcycle riders. Our goal is to help riders achieve the best possible performance from their bikes,
+            whether on the street or the track.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Stock Motorcycle Files</h2>
+            <p>We offer a wide range of stock motorcycle files for Yamaha, Honda, Suzuki, and Kawasaki bikes. Our
+                files are carefully crafted to deliver optimal performance and throttle response, without
+                sacrificing reliability or longevity.</p>
+        </div>
+        <div class="col-md-6">
+            <h2>ECU Mail Service</h2>
+            <p>Modern bikes are often subject to strict emissions regulations and power restrictions that can limit
+                their performance. At our file service company, we offer an ECU mail service to help derestrict
+                these bikes and unlock their full potential.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Race Options</h2>
+            <p>In addition to our stock files, we also offer a range of race options that can be added to your stock
+                ECU. These options include Quick Shifters, Auto-Blippers, Launch Control, and Warm-Up. These race
+                options can give you the competitive edge you need to take your riding to the next level.</p>
+        </div>
+        <div class="col-md-6">
+            <h2>Custom Tuning</h2>
+            <p>If you're looking for even more performance gains, our team of experienced technicians can provide
+                custom tuning services to optimize your bike's performance for your specific needs and riding style.
+                Whether you're a weekend rider or a professional racer, we can help you achieve your goals.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2><a href="{{url_for('contact')}}" style="text-decoration:none; color:black">Contact Us</h2></a>
+            <p>If you're interested in learning more about our file service company, or if you'd like to place an
+                order, please don't hesitate to contact us. We're always here to help you get the most out of your
+                motorcycle.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

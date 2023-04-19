@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="{{ url_for('index')}}">BIN and XDF FILES</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Brands</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{url_for('index')}}">All Brands</a></li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li><a class="dropdown-item" href="{{url_for('index', brand='yamaha')}}">Yamaha</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('index', brand='suzuki')}}">Suzuki</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('index', brand='kawasaki')}}">Kawasaki</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('index', brand='honda')}}">Honda</a></li>
+                    </ul>
+                <li class="nav-item"><a class="nav-link" href="{{url_for('about')}}">About</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="{{url_for('contact')}}">Contact</a></li>
+                <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0" method="POST" action="{{url_for('search')}}">
+                    <input class="form-control mr-sm-2" type="search" name="query" placeholder="Enter file number" aria-label="File search">
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-success mx-2" type="submit">Search</button>
+                </li>    
+                </form>    
+                    
+                </li>
+                </li>
+            </ul>
+            <a href='{{url_for('checkout')}}'>
+      
+                <button class="btn btn-outline-dark">
+                    <i class="bi-cart-fill me-1"></i>
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">{{ item_qty }}</span>
+                </button>
+            </a>
+        
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Contact us{% endblock %}
+    {% block content %}
+      {% include 'includes/flash.html' %}
+
+  
+        <div class="container p-5 my-2">
+          <h1>Contact Us</h1>
+          <p>Motorcycle Bin File Service is a leading provider of motorcycle tuning solutions, including ECU remapping and custom bin file development. Our team of experienced engineers and mechanics can help you get the most out of your motorcycle, no matter what make or model you ride.</p>
+          <p>For more information about our services or to request a quote, please fill out the form below and we'll get back to you as soon as possible.</p>
+          <form action="{{ url_for('contact') }}" method="POST">
+            {{form.hidden_tag()}}
+                {% for field in form %}
+                
+                  <div class="form-group mb-3">
+                 
+                    {{ field(class_="form-control", placeholder=field.render_kw.placeholder)|safe }}
+                    {% for error in field.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                  </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+
+
+        </div>
+    
+    {% endblock %}
+
+    
