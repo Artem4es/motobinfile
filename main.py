@@ -87,8 +87,14 @@ def index(brand=None, page=1):
         page=page,
         per_page=PER_PAGE,
         total=total,
+        # link_size=1,
+        # prev_label='<',
+        # next_label='>',
+        outer_window=0,
+        inner_window=1,
     )
-    pagination.current_page_fmt = '<li class="page-item active"><a class="page-link">{0} <span class="sr-only"></span></a></li>'
+    pagination.current_page_fmt = '<li class="page-item active"><a class="page-link">{0}<span class="sr-only"></span></a></li>'
+    pagination.gap_marker_fmt = ''
     return render_template(
         'index.html',
         cards=data,

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Cart{% endblock %}
 {% block content %}
+
 <div class="container mt-5 p-3 rounded cart">
     <div class="row no-gutters">
         <div class="col-md-8">
@@ -37,11 +38,17 @@
                             <div class="d-flex justify-content-between information"><span>Total {{total}}€</span></div>
                             <button class="btn btn-primary btn-block d-flex flex-column justify-content-center mt-3" type="submit" id="checkout-button"><span>{{ total }} € Checkout </span></button>
                         </form>
+                        <h6 class="my-2">If you encounter any difficulties with card payments, please get in touch with us using the contact button below, so that we may provide you with a more convenient option!</h6>
+                        <div class="d-flex">
+                            <form action="{{ url_for('contact') }}" method="GET">
+                                <div class="text-center"><button class="btn btn-primary btn-block d-flex flex-column justify-content-center" type="submit" class="btn btn-outline-dark mt-auto"></i>Contact us</button></div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             {% endif %}
-            
-            
+
             </div>
         </div>
+        
 {% endblock %}

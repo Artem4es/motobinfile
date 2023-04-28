@@ -10826,8 +10826,10 @@ textarea.form-control-lg {
 }
 
 .pagination-container {
+  position: relative;
   display: flex;
   justify-content: center;
 }
+
 
 

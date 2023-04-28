@@ -5,6 +5,7 @@
 
         <section class="py-5">
             {% include 'includes/paginator.html' %}
+        </div>
             {% if not cards %}
                 <div class="container">
                     <div class="row">
@@ -21,10 +22,12 @@
                             {% include 'includes/card.html' %}
                         {% endfor %}
                     </div>
-                    {% include 'includes/paginator.html' %}
+                    <!-- {% include 'includes/paginator.html' %} -->
                 </div>
         </section>
-        
+        <section class="py-5">
+            {% include 'includes/paginator.html' %}
+        </div>
         {% endblock %}
     </body>
 </html>
