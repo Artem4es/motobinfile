@@ -8,7 +8,7 @@ from main import Item
 
 load_dotenv()
 
-PASSWORD = os.environ('PSGL_PASS')
+PASSWORD = os.getenv('PSGL_PASS')
 
 engine = create_engine(f'postgresql://postgres:{PASSWORD}@localhost/postgres')
 Session = sessionmaker(bind=engine)
