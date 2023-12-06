@@ -39,6 +39,9 @@ app.config['CSRF_ENABLED'] = True
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 app.secret_key = os.environ['FLASK_KEY']
 
+app.config['RECAPTCHA_PUBLIC_KEY'] = os.environ['RECAPTCHA_PUBLIC_KEY']
+app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ['RECAPTCHA_PRIVATE_KEY']
+
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)

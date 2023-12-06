@@ -131,3 +131,5 @@ dmypy.json
 
 #parser
 parser_ecu.py
+
+.idea

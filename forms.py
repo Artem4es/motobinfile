@@ -1,4 +1,4 @@
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, TextAreaField, validators
 
 
@@ -20,3 +20,4 @@ class ContactForm(FlaskForm):
             "placeholder": "Please, provide file number you are interested in"
         },
     )
+    recaptcha = RecaptchaField()

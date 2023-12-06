@@ -1,0 +1,50 @@
+version: '3.3'
+
+services:
+
+  binfile-postges:
+    container_name: binfile-postges
+    hostname: binfile-postges
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    image: postgres:15
+    networks:
+      - home
+
+#  binfile-flask:
+#    container_name: binfile-flask
+#    hostname: binfile-flask
+#    build:
+#      context: .
+#      dockerfile: ./src/app/Dockerfile
+#    ports:
+#      - "8000:8000"
+#      - "7000:7000"
+#    volumes:
+#      - ./src/app/logs/:/alfbot/src/app/logs/
+#    depends_on:
+#      - alf-bot-redis
+#      - alf-bot-postges
+#    networks:
+#      - home
+#
+#
+#  alf-bot-nginx:
+#    container_name: alf-bot-nginx
+#    hostname: alf-bot-nginx
+#    image: nginx
+#    ports:
+#      - "80:80"
+#    volumes:
+#      - ./default.conf:/etc/nginx/conf.d/default.conf
+#    depends_on:
+#      - alf-bot-fastapi
+#    networks:
+#      - home
+#
+
+
+networks:
+  home: {}
