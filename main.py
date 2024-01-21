@@ -108,28 +108,22 @@ def index(brand=None, page=1):
 
 @app.route('/add_to_cart', methods=['POST'])
 def add_to_cart():
-    item_id = request.form['item_id']
-    item_number = request.form['item_number']
-    description = request.form['item_description']
-    item_price = request.form['item_price']
+    item_data = {}
+    item_data['id'] = request.form['item_id']
+    item_data['price'] = request.form['item_price']
+    item_data['number'] = request.form['item_number']
+    item_data['description'] = request.form['item_description']
     cart = session.get('cart', [])
     last_page = request.referrer
     for item in cart:
-        if item.get('id') == item_id:
+        if item.get('id') == item_data['id']:
             flash('You already have this item in cart!', 'error')
             return redirect(last_page)
-    cart.append(
-        {
-            'id': item_id,
-            'price': item_price,
-            'number': item_number,
-            'description': description,
-        }
-    )
+    cart.append(item_data)
     session['cart'] = cart
 
     flash('Item has been added to cart!')
-
+    send_message(f'Пользователь добавил в корзину:\n{item_data} \n\nСодержимое корзины:\n{cart}')
     return redirect(last_page)
 
 
@@ -242,6 +236,7 @@ def create_checkout_session():
         )
 
     except Exception as e:
+        send_message(f'Пользователь пытался купить товары: \n {items} \n\nНо произошла ошибка оплаты!')
         return str(e)
     send_message(message=f'Начата оплата!\nТовары: {items}')
     return redirect(checkout_session.url, code=303)
@@ -278,7 +273,8 @@ def delete(item_id):
     items = session.get('cart', [])
     for i in range(len(items)):
         if int(items[i].get('id')) == item_id:
-            items.pop(i)
+            item = items.pop(i)
+            send_message(f'Пользователь удалил из корзины товар:\n{item} \n\nОсталось:\n{session["cart"]}')
             break
     session['cart'] = items
 

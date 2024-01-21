@@ -43,6 +43,8 @@ ADMIN_ID = Ваш ID в Telegram
 PSGL_PASS = Пароль от БД
 PRICE_30 = Пароль от продукта
 PRICE_50 = Пароль от другого продукта
+RECAPTCHA_PUBLIC_KEY = Google recaptcha key
+RECAPTCHA_PRIVATE_KEY=
 ```
 
 Выполнить миграции:
